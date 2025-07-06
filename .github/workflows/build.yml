@@ -32,3 +32,18 @@ jobs:
         env:
           MAVEN_TOKEN: ${{ secrets.MAVEN_TOKEN }}
         run: ./gradlew build publish
+
+      - name: Upload artifact forge
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: forge build
+          path: ./forge/build
+          retention-days: 7
+
+      - name: Upload artifact fabric
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: fabric build
+          path: ./fabric/build
+          retention-days: 7
+        
